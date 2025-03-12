@@ -1,0 +1,45 @@
+flowchart TD
+    A[Start: Constatering Afwezigheid] --> B{Type Verzuim?}
+    
+    B -->|Ziekmelding| C[Registratie door administratie]
+    B -->|Ongeoorloofd| D[Registratie door docent]
+    B -->|Verlofaanvraag| E[Beoordeling door directie]
+    
+    C --> F{Langdurig ziek?}
+    F -->|Ja| G[Inschakelen schoolarts]
+    F -->|Nee| H[Monitoring verzuimcoördinator]
+    
+    D --> I{Meer dan 16 uur in 4 weken?}
+    I -->|Ja| J[DUO melding]
+    I -->|Nee| K[Actie mentor]
+    
+    E --> L{Verlof toegekend?}
+    L -->|Ja| M[Registratie geoorloofd verzuim]
+    L -->|Nee| N[Informeren ouders]
+    
+    G --> O[Terugkoppeling school]
+    H --> P{Verzuim gestopt?}
+    J --> Q[Informeren ouders]
+    K --> R[Contact ouders]
+    
+    M --> S[Documentatie]
+    N --> T[Registratie ongeoorloofd verzuim]
+    
+    O --> U[Opstellen plan van aanpak]
+    P -->|Nee| V[Escalatie]
+    P -->|Ja| W[Afsluiten]
+    
+    Q --> X[Gesprek leerplicht]
+    R --> Y{Verklaring ontvangen?}
+    
+    Y -->|Ja| Z[Aanpassen registratie]
+    Y -->|Nee| AA[Ongeoorloofd verzuim]
+    
+    S --> BB[Einde proces]
+    T --> I
+    U --> BB
+    V --> J
+    W --> BB
+    X --> BB
+    Z --> BB
+    AA --> I
